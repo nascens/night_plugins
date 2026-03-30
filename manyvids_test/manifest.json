@@ -1,0 +1,9 @@
+{
+    "title": "Manyvids Test",
+    "name": "manyvids_test",
+    "description": "An example plugin for NightLoader",
+    "author": "nascens",
+    "version": "1.0.0",
+    "sdk_version": "0.1.0",
+    "module": "manyvids"
+}

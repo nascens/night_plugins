@@ -1,0 +1,101 @@
+<div id="process_options" is="loader-process-options">
+    <div class="container_body box_list_container">
+        <div class="box_container no_padding">
+            <div class="separate">
+                <h3>Manyvids Observer</h3>
+                <i>
+                    <p>by nascens</p>
+                </i>
+                <div class="buttons">
+                    <button is="process-start-stop-button" id="process_startstop_btn"
+                        class="primary">Start</button>
+                </div>
+            </div>
+            <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">{{=it.translate('observer_submenu')}}</div>
+                </div>
+                <div class="subcontainer_body">
+                    <div class="range_group no_justify">
+                        <label>
+                            <input type="checkbox" class="checkbox-input" id="observer_enabled" type="checkbox"
+                                name="observer_enabled">
+                            <div class="checkbox-container">
+                                <div class="custom-checkbox"></div>
+                                <div class="checkbox-content">
+                                    <h3 class="checkbox-title">{{=it.translate('enabled')}}</h3>
+                                    <p class="checkbox-description">Description test.</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label>
+                            <input type="checkbox" class="checkbox-input" id="auto_ai_reply" type="checkbox"
+                                name="auto_ai_reply">
+                            <div class="checkbox-container">
+                                <div class="custom-checkbox"></div>
+                                <div class="checkbox-content">
+                                    <h3 class="checkbox-title">{{=it.translate('auto_ai_reply')}}</h3>
+                                    <p class="checkbox-description">Description test.</p>
+                                </div>
+                            </div>
+                        </label>
+
+                        <div class="slider-container">
+                            <div class="slider-progress"></div>
+
+                            <input type="range" min="0" max="600" value="0" class="slider-input" data-unit="s"
+                                data-levels="0:disabled;1:probably too often;15:likely optimal" is="range-slider"
+                                name="observer_delay" />
+                            <div class="slider-content">
+                                <div class="slider-left">
+                                    <h2 class="slider-title">{{=it.translate('check_delay')}}</h2>
+                                    <p class="slider-description">Description test.</p>
+                                </div>
+
+                                <div class="slider-right">
+                                    <div class="slider-value-container">
+                                        <span class="slider-value">50</span>
+                                        <span class="slider-unit">%</span>
+                                    </div>
+                                    <div class="slider-label">Medium</div>
+                                </div>
+                            </div>
+
+                            <div class="slider-indicator slider-indicator-top-left"></div>
+                            <div class="slider-indicator slider-indicator-top-right"></div>
+                        </div>
+                    </div>
+                    <label class="data_label" for="ai_completion_bio">{{=it.translate('ai_completion_bio')}}</label>
+                    <textarea id="ai_completion_bio" name="ai_completion_bio" rows="5"
+                        style="outline:none;resize: vertical;width: 100%;"
+                        placeholder="{{=it.translate('describe_yourself')}}"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="box_container">
+        </div> -->
+
+        <div class="box_container no_padding" id="loader_progress">
+            <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">Unread messages</div>
+                </div>
+                <div class="subcontainer_body">
+                    <table class="process_log table_fixed" is="process-input-log" data-name="input"
+                        data-max_entries="100"></table>
+                </div>
+            </div>
+            <!-- <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">Outgoing log</div>
+                </div>
+                <div class="subcontainer_body">
+                    <table class="process_log table_fixed" is="process-output-log" data-name="output"
+                        data-max_entries="100"></table>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

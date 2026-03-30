@@ -1,0 +1,9 @@
+{
+    "title": "Manyvids Spam",
+    "name": "manyvids_spam",
+    "description": "An example plugin for NightLoader",
+    "author": "nascens",
+    "version": "1.0.0",
+    "sdk_version": "0.1.0",
+    "module": "manyvids"
+}

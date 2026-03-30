@@ -1,0 +1,358 @@
+<div id="process_options" is="loader-process-options">
+    <div class="container_body box_list_container">
+        <div class="box_container no_padding">
+            <div class="separate">
+                <h3>Manyvids Spam</h3>
+                <i>
+                    <p>by nascens</p>
+                </i>
+                <div class="buttons">
+                    <button is="process-start-stop-button" id="process_startstop_btn"
+                        class="primary">Start</button>
+                </div>
+            </div>
+            <div class="separate">
+                <div class="subcontainer_head" id="mv_audience_source_head">
+                    <div class="subcontainer_header">{{=it.translate('audience_source_submenu')}}</div>
+                </div>
+                <div class="subcontainer_body">
+                    <div class="tabs">
+                        <input class="tab_radio" id="categories_tab_radio" type="radio" name="audience_source"
+                            value="categories" tab_id="categories_tab" is="night-tab" is_default>
+                        <label class="tab" for="categories_tab_radio">
+                            <span class="tab_icon">{{#def.include('./icons/categories.dot')}}</span>
+                            <span>{{=it.translate('categories_submenu')}}</span>
+                        </label>
+                        <input class="tab_radio" id="model_list_tab_radio" type="radio" name="audience_source"
+                            value="model_list" tab_id="model_list_tab" is="night-tab">
+                        <label class="tab" for="model_list_tab_radio">
+                            <span class="tab_icon">{{#def.include('./icons/people.dot')}}</span>
+                            <span>{{=it.translate('model_list_submenu')}}</span>
+                        </label>
+                        <input class="tab_radio" id="follower_list_tab_radio" type="radio" name="audience_source"
+                            value="follower_list" tab_id="follower_list_tab" is="night-tab">
+                        <label class="tab" for="follower_list_tab_radio">
+                            <div class="tab_icon">{{#def.include('./icons/squares_plus.dot')}}</div>
+                            <span>{{=it.translate('follower_list_submenu')}}</span>
+                        </label>
+                    </div>
+
+                    <div class="tab_group">
+                        <div id="categories_tab" class="hidden invisible">
+                            <mv-multi-input id="categories_mi" class="multi-input" name="categories">
+                                <input list="categories_list" id="categories_input" name="categories_input"
+                                    placeholder="{{=it.translate('enter_categories')}}">
+                                <datalist id="categories_list">
+
+                                </datalist>
+                            </mv-multi-input>
+                        </div>
+                        <div id="model_list_tab" class="hidden invisible">
+                            <textarea id="model_list_text" name="model_list" rows="5"
+                                placeholder="{{=it.translate('model_list_placeholder')}}"></textarea>
+                        </div>
+                        <div id="follower_list_tab" class="hidden invisible">
+                            <textarea id="follower_list_text" name="follower_list" rows="5"
+                                placeholder="{{=it.translate('follower_list_placeholder')}}"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">{{=it.translate('message_submenu')}}</div>
+                </div>
+                <div class="subcontainer_body">
+                    <div class="input_containers">
+                        <div class="input_container">
+                            <label class="data_label" for="price_input">{{=it.translate('price_usd')}}</label>
+                            <input id="price_input" type="number" name="price" min="0" max="999.99" placeholder="0.00"
+                                step="0.01">
+                        </div>
+                    </div>
+                    <label class="data_label" for="message_input">{{=it.translate('message_text')}}</label>
+                    <textarea name="message" rows="5" style="outline:none;resize: vertical;width: 100%;"
+                        placeholder="{{=it.translate('user_is_username_replacer')}}" id="message_input"></textarea>
+                    <button class="btn edit_btn" id="message_test_btn">Test</button>
+                    <output id="message_test"></output>
+
+                    <night-file accept=".jpg,.jpeg,.png,.gif,.webp,.mp4,.webm,.mov,.avi,.mp3,.wav" multiple
+                        id="nightFile" name="files">
+                        <div class="media-input-container">
+                            <div class="compact-view" id="compactView">
+                                <div class="compact-icon">📁</div>
+                                <div class="compact-text">
+                                    <div class="compact-files-text" id="supported_extensions"></div>
+                                    <div class="subtext">Click or drag files here</div>
+                                </div>
+                                <div class="file-count hidden" id="fileCount">0</div>
+                            </div>
+
+                            <div class="preview-container" id="previewContainer"></div>
+
+                            <div class="expanded-view" id="expandedView">
+                                <div class="drop-zone">
+                                    <div class="icon">📎</div>
+                                    <div class="text" id="supported_extensions_dragndrop"></div>
+                                    <div class="subtext">Release to add files</div>
+                                </div>
+                            </div>
+                        </div>
+                    </night-file>
+                </div>
+            </div>
+        </div>
+
+        <div class="box_container">
+            <div class="subcontainer_head">
+                <div class="subcontainer_header">{{=it.translate('extra_filters_submenu')}}</div>
+            </div>
+            <div class="subcontainer_body">
+                <div class="input_containers">
+                    <div class="input_container">
+                        <label class="data_label" for="min_rating_input">{{=it.translate('min_rating')}} </label>
+                        <input id="min_rating_input" type="number" name="min_rating" min="0" max="100000000"
+                            placeholder="0">
+                    </div>
+                    <div class="input_container">
+                        <label class="data_label" for="min_club_rank">{{=it.translate('min_club_rank')}}</label>
+                        <input id="min_club_rank_input" type="number" name="min_club_rank" min="0" max="100000000"
+                            placeholder="0">
+                    </div>
+                    <div class="input_container">
+                        <label class="data_label" for="min_account_age">{{=it.translate('min_account_age')}}</label>
+                        <input id="min_account_age_input" type="number" name="min_account_age" min="0" max="100000000"
+                            placeholder="0">
+                    </div>
+                    <div class="input_container">
+                        <label class="data_label" for="max_account_age">{{=it.translate('max_account_age')}}</label>
+                        <input id="max_account_age_input" type="number" name="max_account_age" min="0" max="100000000"
+                            placeholder="0">
+                    </div>
+                </div>
+                <div class="checkbox_group">
+                    <label>
+                        <input type="checkbox" class="checkbox-input" id="empty_chat" type="checkbox" name="empty_chat">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('empty_chat_only')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" class="checkbox-input" id="premium_members_only" type="checkbox"
+                            name="premium_members_only">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('premium_members_only')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" class="checkbox-input" id="auto_follow" type="checkbox"
+                            name="auto_follow">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('auto_follow')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" class="checkbox-input" id="blocked_followers_process" type="checkbox"
+                            name="blocked_followers_process">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('blocked_followers_complete')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label>
+                        <input type="checkbox" class="checkbox-input" id="skip_bot_usernames" type="checkbox"
+                            name="skip_bot_usernames">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('skip_bot_usernames')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- <label>
+                        <input type="checkbox" class="checkbox-input" id="smart_filter" type="checkbox"
+                            name="smart_filter">
+                        <div class="checkbox-container">
+                            <div class="custom-checkbox"></div>
+                            <div class="checkbox-content">
+                                <h3 class="checkbox-title">{{=it.translate('smart_filter')}}</h3>
+                                <p class="checkbox-description">Description test.</p>
+                            </div>
+                        </div>
+                    </label> -->
+                </div>
+
+                <div class="range_group">
+
+                    <div class="slider-container">
+                        <div class="slider-progress"></div>
+
+                        <input type="range" min="0" max="30" value="0" class="slider-input" data-unit="days"
+                            data-levels="0:disabled;1:fine;15:likely overkill" is="range-slider"
+                            name="ignore_models_period" />
+                        <div class="slider-content">
+                            <div class="slider-left">
+                                <h2 class="slider-title">{{=it.translate('skip_processed_models')}}</h2>
+                                <p class="slider-description">Description test.</p>
+                            </div>
+
+                            <div class="slider-right">
+                                <div class="slider-value-container">
+                                    <span class="slider-value">50</span>
+                                    <span class="slider-unit">%</span>
+                                </div>
+                                <div class="slider-label">Medium</div>
+                            </div>
+                        </div>
+
+                        <div class="slider-indicator slider-indicator-top-left"></div>
+                        <div class="slider-indicator slider-indicator-top-right"></div>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-progress"></div>
+
+                        <input type="range" min="0" max="30" value="0" name="ignore_users_period" class="slider-input"
+                            data-unit="days" data-levels="0:disabled;1:enabled" is="range-slider" />
+                        <div class="slider-content">
+                            <div class="slider-left">
+                                <h2 class="slider-title">{{=it.translate('skip_processed_followers')}}</h2>
+                                <p class="slider-description">Description test.</p>
+                            </div>
+
+                            <div class="slider-right">
+                                <div class="slider-value-container">
+                                    <span class="slider-value">50</span>
+                                    <span class="slider-unit">%</span>
+                                </div>
+                                <div class="slider-label">Medium</div>
+                            </div>
+                        </div>
+
+                        <div class="slider-indicator slider-indicator-top-left"></div>
+                        <div class="slider-indicator slider-indicator-top-right"></div>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-progress"></div>
+
+                        <input type="range" min="0" max="30" value="0" name="skip_users_processed_by_others_period"
+                            data-unit="days" data-levels="0:disabled';1:fine;15:likely overkill" class="slider-input"
+                            is="range-slider" />
+                        <div class="slider-content">
+                            <div class="slider-left">
+                                <h2 class="slider-title">{{=it.translate('skip_users_processed_by_others')}}</h2>
+                                <p class="slider-description">Description test.</p>
+                            </div>
+
+                            <div class="slider-right">
+                                <div class="slider-value-container">
+                                    <span class="slider-value">50</span>
+                                    <span class="slider-unit">%</span>
+                                </div>
+                                <div class="slider-label">Medium</div>
+                            </div>
+                        </div>
+
+                        <div class="slider-indicator slider-indicator-top-left"></div>
+                        <div class="slider-indicator slider-indicator-top-right"></div>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-progress"></div>
+
+                        <input type="range" min="0" max="600" value="15" name="post_delay" class="slider-input"
+                            data-unit="s" data-levels="0:risky;15:likely ok;60:safe" is="range-slider" />
+                        <div class="slider-content">
+                            <div class="slider-left">
+                                <h2 class="slider-title">{{=it.translate('post_delay')}}</h2>
+                                <p class="slider-description">Description test.</p>
+                            </div>
+
+                            <div class="slider-right">
+                                <div class="slider-value-container">
+                                    <span class="slider-value">50</span>
+                                    <span class="slider-unit">%</span>
+                                </div>
+                                <div class="slider-label">Medium</div>
+                            </div>
+                        </div>
+
+                        <div class="slider-indicator slider-indicator-top-left"></div>
+                        <div class="slider-indicator slider-indicator-top-right"></div>
+                    </div>
+
+                    <div class="slider-container">
+                        <div class="slider-progress"></div>
+
+                        <input type="range" min="0" max="600" value="15" name="extra_random_delay" class="slider-input"
+                            data-unit="s" data-levels="0:risky;10:likely ok;20:safe" is="range-slider" />
+                        <div class="slider-content">
+                            <div class="slider-left">
+                                <h2 class="slider-title">{{=it.translate('extra_random_delay')}}</h2>
+                                <p class="slider-description">Description test.</p>
+                            </div>
+
+                            <div class="slider-right">
+                                <div class="slider-value-container">
+                                    <span class="slider-value">50</span>
+                                    <span class="slider-unit">%</span>
+                                </div>
+                                <div class="slider-label">Medium</div>
+                            </div>
+                        </div>
+
+                        <div class="slider-indicator slider-indicator-top-left"></div>
+                        <div class="slider-indicator slider-indicator-top-right"></div>
+                    </div>
+                </div>
+                <label class="data_label" for="members_blacklist">{{=it.translate('blacklist')}}</label>
+                <textarea id="members_blacklist" name="members_blacklist" rows="5"
+                    style="outline:none;resize: vertical;width: 100%;"
+                    placeholder="{{=it.translate('blacklist_textarea')}}"></textarea>
+            </div>
+        </div>
+
+        <div class="box_container no_padding" id="loader_progress">
+            <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">Outgoing log</div>
+                </div>
+                <div class="subcontainer_body">
+                    <table class="process_log table_fixed" is="process-output-log" data-name="output"></table>
+                </div>
+            </div>
+
+            <div class="separate">
+                <div class="subcontainer_head">
+                    <div class="subcontainer_header">Outgoing chart</div>
+                </div>
+                <div class="subcontainer_body">
+                    <canvas class="chart_canvas" id="output_log_chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
