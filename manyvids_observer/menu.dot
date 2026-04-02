@@ -24,7 +24,7 @@
                                 <div class="custom-checkbox"></div>
                                 <div class="checkbox-content">
                                     <h3 class="checkbox-title">{{=it.translate('enabled')}}</h3>
-                                    <p class="checkbox-description">Description test.</p>
+                                    <p class="checkbox-description">{{=it.translate('enabled_description')}}</p>
                                 </div>
                             </div>
                         </label>
@@ -36,7 +36,7 @@
                                 <div class="custom-checkbox"></div>
                                 <div class="checkbox-content">
                                     <h3 class="checkbox-title">{{=it.translate('auto_ai_reply')}}</h3>
-                                    <p class="checkbox-description">Description test.</p>
+                                    <p class="checkbox-description">{{=it.translate('auto_ai_reply_description')}}</p>
                                 </div>
                             </div>
                         </label>
@@ -50,7 +50,7 @@
                             <div class="slider-content">
                                 <div class="slider-left">
                                     <h2 class="slider-title">{{=it.translate('check_delay')}}</h2>
-                                    <p class="slider-description">Description test.</p>
+                                    <p class="slider-description">{{=it.translate('check_delay_description')}}</p>
                                 </div>
 
                                 <div class="slider-right">
@@ -80,7 +80,7 @@
         <div class="box_container no_padding" id="loader_progress">
             <div class="separate">
                 <div class="subcontainer_head">
-                    <div class="subcontainer_header">Unread messages</div>
+                    <div class="subcontainer_header">{{=it.translate('unread_messages')}}</div>
                 </div>
                 <div class="subcontainer_body">
                     <table class="process_log table_fixed" is="process-input-log" data-name="input"

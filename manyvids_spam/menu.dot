@@ -8,7 +8,7 @@
                 </i>
                 <div class="buttons">
                     <button is="process-start-stop-button" id="process_startstop_btn"
-                        class="primary">Start</button>
+                        class="primary">{{=it.translate('start_btn')}}</button>
                 </div>
             </div>
             <div class="separate">
@@ -74,7 +74,7 @@
                     <label class="data_label" for="message_input">{{=it.translate('message_text')}}</label>
                     <textarea name="message" rows="5" style="outline:none;resize: vertical;width: 100%;"
                         placeholder="{{=it.translate('user_is_username_replacer')}}" id="message_input"></textarea>
-                    <button class="btn edit_btn" id="message_test_btn">Test</button>
+                    <button class="btn edit_btn" id="message_test_btn">{{=it.translate('test_btn')}}</button>
                     <output id="message_test"></output>
 
                     <night-file accept=".jpg,.jpeg,.png,.gif,.webp,.mp4,.webm,.mov,.avi,.mp3,.wav" multiple
@@ -84,7 +84,7 @@
                                 <div class="compact-icon">📁</div>
                                 <div class="compact-text">
                                     <div class="compact-files-text" id="supported_extensions"></div>
-                                    <div class="subtext">Click or drag files here</div>
+                                    <div class="subtext">{{=it.translate('click_or_drag_files')}}</div>
                                 </div>
                                 <div class="file-count hidden" id="fileCount">0</div>
                             </div>
@@ -95,7 +95,7 @@
                                 <div class="drop-zone">
                                     <div class="icon">📎</div>
                                     <div class="text" id="supported_extensions_dragndrop"></div>
-                                    <div class="subtext">Release to add files</div>
+                                    <div class="subtext">{{=it.translate('release_to_add_files')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="custom-checkbox"></div>
                             <div class="checkbox-content">
                                 <h3 class="checkbox-title">{{=it.translate('empty_chat_only')}}</h3>
-                                <p class="checkbox-description">Description test.</p>
+                                <p class="checkbox-description">{{=it.translate('empty_chat_only_description')}}</p>
                             </div>
                         </div>
                     </label>
@@ -150,7 +150,7 @@
                             <div class="custom-checkbox"></div>
                             <div class="checkbox-content">
                                 <h3 class="checkbox-title">{{=it.translate('premium_members_only')}}</h3>
-                                <p class="checkbox-description">Description test.</p>
+                                <p class="checkbox-description">{{=it.translate('premium_members_only_description')}}</p>
                             </div>
                         </div>
                     </label>
@@ -162,7 +162,7 @@
                             <div class="custom-checkbox"></div>
                             <div class="checkbox-content">
                                 <h3 class="checkbox-title">{{=it.translate('auto_follow')}}</h3>
-                                <p class="checkbox-description">Description test.</p>
+                                <p class="checkbox-description">{{=it.translate('auto_follow_description')}}</p>
                             </div>
                         </div>
                     </label>
@@ -174,7 +174,7 @@
                             <div class="custom-checkbox"></div>
                             <div class="checkbox-content">
                                 <h3 class="checkbox-title">{{=it.translate('blocked_followers_complete')}}</h3>
-                                <p class="checkbox-description">Description test.</p>
+                                <p class="checkbox-description">{{=it.translate('blocked_followers_complete_description')}}</p>
                             </div>
                         </div>
                     </label>
@@ -186,7 +186,7 @@
                             <div class="custom-checkbox"></div>
                             <div class="checkbox-content">
                                 <h3 class="checkbox-title">{{=it.translate('skip_bot_usernames')}}</h3>
-                                <p class="checkbox-description">Description test.</p>
+                                <p class="checkbox-description">{{=it.translate('skip_bot_usernames_description')}}</p>
                             </div>
                         </div>
                     </label>
@@ -215,7 +215,7 @@
                         <div class="slider-content">
                             <div class="slider-left">
                                 <h2 class="slider-title">{{=it.translate('skip_processed_models')}}</h2>
-                                <p class="slider-description">Description test.</p>
+                                <p class="slider-description">{{=it.translate('skip_processed_models_description')}}</p>
                             </div>
 
                             <div class="slider-right">
@@ -239,7 +239,7 @@
                         <div class="slider-content">
                             <div class="slider-left">
                                 <h2 class="slider-title">{{=it.translate('skip_processed_followers')}}</h2>
-                                <p class="slider-description">Description test.</p>
+                                <p class="slider-description">{{=it.translate('skip_processed_followers_description')}}</p>
                             </div>
 
                             <div class="slider-right">
@@ -264,7 +264,7 @@
                         <div class="slider-content">
                             <div class="slider-left">
                                 <h2 class="slider-title">{{=it.translate('skip_users_processed_by_others')}}</h2>
-                                <p class="slider-description">Description test.</p>
+                                <p class="slider-description">{{=it.translate('skip_users_processed_by_others_description')}}</p>
                             </div>
 
                             <div class="slider-right">
@@ -288,7 +288,7 @@
                         <div class="slider-content">
                             <div class="slider-left">
                                 <h2 class="slider-title">{{=it.translate('post_delay')}}</h2>
-                                <p class="slider-description">Description test.</p>
+                                <p class="slider-description">{{=it.translate('post_delay_description')}}</p>
                             </div>
 
                             <div class="slider-right">
@@ -312,7 +312,7 @@
                         <div class="slider-content">
                             <div class="slider-left">
                                 <h2 class="slider-title">{{=it.translate('extra_random_delay')}}</h2>
-                                <p class="slider-description">Description test.</p>
+                                <p class="slider-description">{{=it.translate('extra_random_delay_description')}}</p>
                             </div>
 
                             <div class="slider-right">
@@ -338,7 +338,7 @@
         <div class="box_container no_padding" id="loader_progress">
             <div class="separate">
                 <div class="subcontainer_head">
-                    <div class="subcontainer_header">Outgoing log</div>
+                    <div class="subcontainer_header">{{=it.translate('outgoing_log')}}</div>
                 </div>
                 <div class="subcontainer_body">
                     <table class="process_log table_fixed" is="process-output-log" data-name="output"></table>
@@ -347,7 +347,7 @@
 
             <div class="separate">
                 <div class="subcontainer_head">
-                    <div class="subcontainer_header">Outgoing chart</div>
+                    <div class="subcontainer_header">{{=it.translate('outgoing_chart')}}</div>
                 </div>
                 <div class="subcontainer_body">
                     <canvas class="chart_canvas" id="output_log_chart"></canvas>
