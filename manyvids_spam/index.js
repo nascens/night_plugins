@@ -52,7 +52,7 @@ export default class ManyvidsSpam extends Process {
         console.log('Manyvids Spam loaded!');
     }
 
-    static decode_message(template, user) {
+    static decode_message(template='', user) {
         return template
             // Replace {{username}} and {{clubRank}} style tokens
             .replace(/\{\{(\w+)\}\}/g, (match, key) => {
@@ -301,6 +301,7 @@ export default class ManyvidsSpam extends Process {
             return;
         }
 
+        if (!this.settings.message) throw 'Empty message';
         const decoded_message = ManyvidsSpam.decode_message(this.settings.message, user);
         if (!decoded_message) throw 'Empty message';
 
